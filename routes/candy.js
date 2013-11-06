@@ -1,23 +1,13 @@
 var fs = require('fs');
 
+function getData() {
+
+  // can this get cached or something?
+  return (fs.readFileSync('./data.json', { encoding: 'utf8', flag: 'r' }));
+}
+
 exports.index = function(req, res) {
-  var data = { 
-    //these need to get pulled from somewhere, need to have reusable pieces (location, dob)
-    objects: {
-      'user': { 
-        'name': 'user', 
-        'fields': ['email', 'password', 'username'] 
-      },
-      'location' : { 
-        'name': 'location',
-        'fields': ['country', 'state', 'city'] 
-      },
-      'dob' : { 
-        'name': 'dob',
-        'fields': ['month', 'day', 'year'] 
-      }
-    }
-  };
+  var data = { objects: JSON.parse(getData()) };
 
   if (req.query.form) {
     data.form = req.query.form;

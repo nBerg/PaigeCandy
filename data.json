@@ -1,0 +1,32 @@
+{
+  "user" : {
+    "name": "user",
+    "fields": [
+      "firstname",
+      "lastname",
+      "email",
+      "password",
+      "location",
+      "dob"
+    ]
+  },
+
+  "location" : {
+    "name": "location",
+    "fields": [
+      "country",
+      "state",
+      "province",
+      "city"
+    ]
+  },
+
+  "dob" : {
+    "name": "dob",
+    "fields": [
+      "month",
+      "day",
+      "year"
+    ]
+  }
+}
