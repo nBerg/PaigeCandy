@@ -15,10 +15,14 @@
   <div class="col-md-4 col-xs-6">
     <% if (locals.form) { %>
     <form id="<%= objects[form].name %>form" method="post">
+      <div class="form-group">
+        <label for="file-name">File Name</label>
+        <input type="text" class="form-control" id="file-name" name="file"/>
+      </div>
       <% objects[form].fields.forEach(function(field) { %>
         <div class="form-group">
           <label for="<%= field %>"><%= field %></label>
-          <input type="text" class="form-control" id="<%= field %>" name="<%= field %>"/>
+          <input type="text" class="form-control" id="<%= field %>" name="field[<%= field %>]"/>
         </div>
       <% }) %>
       <button type="submit" class="btn btn-default">Submit</button>

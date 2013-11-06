@@ -27,7 +27,16 @@ exports.index = function(req, res) {
 };
 
 exports.generate = function(req, res) {
-  var file = fs.createWriteStream('./out.json', { flags: 'w' /*flags: 'wx' */ });
-  //write to file
+  console.log("Request Body:\n" + JSON.stringify(req.body, null, '\t'));
+
+  var file = fs.createWriteStream('./output/' + req.body.file + '.json', { flags: 'wx'});
+
+  file.on('error', function(err) {
+    console.log("ERROR: " + err);
+  });
+
+  file.write(JSON.stringify(req.body.field, null, '\t'));
+  file.end();
+
   res.redirect('/candy');
 };
