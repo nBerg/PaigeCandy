@@ -1,0 +1,23 @@
+{
+  "user" : [
+    "firstname",
+    "lastname",
+    "email",
+    "password",
+    "location",
+    "dob"
+  ],
+
+  "location" : [
+    "country",
+    "state",
+    "province",
+    "city"
+  ],
+
+  "dob" : [
+    "month",
+    "day",
+    "year"
+  ]
+}
